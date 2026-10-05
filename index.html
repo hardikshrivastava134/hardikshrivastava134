@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#11100f" />
+  <title>3 October 2026 — A Shaam Yaadgar</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap');
+
+    :root {
+      --bg: #0d0c0b;
+      --paper: #171513;
+      --text: #f3eee7;
+      --muted: #bdb4aa;
+      --gold: #d8b477;
+      --line: rgba(255,255,255,.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, sans-serif;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .hero {
+      min-height: 100svh;
+      position: relative;
+      display: grid;
+      place-items: end center;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: -3%;
+      background:
+        linear-gradient(to bottom, rgba(0,0,0,.08), rgba(0,0,0,.35) 50%, #0d0c0b 100%),
+        url("assets/kamal-pokhari.jpeg") center center / cover no-repeat;
+      z-index: -2;
+      animation: slowZoom 18s ease-out forwards;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, #0d0c0b 0%, transparent 45%, rgba(0,0,0,.12));
+      z-index: -1;
+    }
+
+    @keyframes slowZoom {
+      from { transform: scale(1.04); }
+      to { transform: scale(1.0); }
+    }
+
+    .hero-content {
+      width: min(920px, 90%);
+      padding: 0 0 12vh;
+      text-align: center;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .35em;
+      font-size: .7rem;
+      color: #e4d4bb;
+      margin-bottom: 20px;
+    }
+
+    h1, h2, .date, .quote {
+      font-family: "Cormorant Garamond", serif;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(3.5rem, 9vw, 7.8rem);
+      line-height: .82;
+      font-weight: 500;
+      letter-spacing: -.04em;
+    }
+
+    .hero-sub {
+      margin: 28px auto 0;
+      max-width: 620px;
+      color: rgba(255,255,255,.78);
+      font-size: .95rem;
+      letter-spacing: .04em;
+    }
+
+    .date {
+      margin-top: 28px;
+      color: var(--gold);
+      font-size: 1.15rem;
+      letter-spacing: .12em;
+    }
+
+    .scroll {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,.55);
+      font-size: .65rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+    }
+
+    .music {
+      position: fixed;
+      top: 22px;
+      right: 22px;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 999px;
+      background: rgba(16,15,14,.65);
+      backdrop-filter: blur(14px);
+      color: white;
+      font-size: .72rem;
+      cursor: pointer;
+    }
+
+    .music .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 14px var(--gold);
+    }
+
+    .music.playing .dot {
+      animation: pulse 1.2s infinite;
+    }
+
+    @keyframes pulse {
+      50% { transform: scale(1.7); opacity: .45; }
+    }
+
+    main {
+      width: min(920px, 90%);
+      margin: 0 auto;
+    }
+
+    .intro {
+      padding: 120px 0 80px;
+      text-align: center;
+    }
+
+    .intro h2 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1;
+      font-weight: 500;
+      margin: 0 0 25px;
+    }
+
+    .intro p {
+      max-width: 650px;
+      margin: auto;
+      color: var(--muted);
+    }
+
+    .story {
+      padding: 30px 0 120px;
+    }
+
+    .story p {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.35rem, 2.2vw, 1.65rem);
+      line-height: 1.65;
+      color: #e9e1d7;
+      margin: 0 0 34px;
+    }
+
+    .story p:first-child::first-letter {
+      float: left;
+      font-size: 5rem;
+      line-height: .78;
+      padding: 8px 12px 0 0;
+      color: var(--gold);
+    }
+
+    .photo-card {
+      margin: 80px auto 95px;
+      max-width: 700px;
+      position: relative;
+    }
+
+    .photo-card img {
+      display: block;
+      width: 100%;
+      border-radius: 3px;
+      filter: saturate(.88) contrast(.98);
+      box-shadow: 0 35px 80px rgba(0,0,0,.45);
+    }
+
+    .photo-caption {
+      text-align: center;
+      margin-top: 18px;
+      color: #958b80;
+      font-size: .7rem;
+      text-transform: uppercase;
+      letter-spacing: .24em;
+    }
+
+    .moment {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 65px 0;
+      margin: 50px 0 90px;
+      text-align: center;
+    }
+
+    .moment .time {
+      color: var(--gold);
+      font-size: .75rem;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+    }
+
+    .moment .quote {
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1.05;
+      margin: 18px auto 0;
+      max-width: 760px;
+    }
+
+    .ending {
+      padding: 80px 0 140px;
+      text-align: center;
+    }
+
+    .ending h2 {
+      font-size: clamp(2.8rem, 7vw, 5.8rem);
+      line-height: .9;
+      font-weight: 500;
+      margin: 0 0 35px;
+    }
+
+    .ending p {
+      color: var(--muted);
+      max-width: 680px;
+      margin: auto;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.35rem;
+    }
+
+    .signature {
+      margin-top: 50px;
+      color: var(--gold);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.25rem;
+      font-style: italic;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: #625b54;
+      font-size: .65rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .9s ease, transform .9s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 600px) {
+      .music { top: 14px; right: 14px; }
+      .hero-content { padding-bottom: 15vh; }
+      .story { padding-top: 10px; }
+      .photo-card { margin-top: 55px; }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="music" id="musicButton" aria-label="Play music">
+    <span class="dot"></span>
+    <span id="musicLabel">Play the evening</span>
+  </button>
+
+  <audio id="song" preload="auto" loop>
+    <source src="assets/zoobi-doobi-intro.mp3" type="audio/mpeg" />
+  </audio>
+
+  <header class="hero">
+    <div class="hero-content reveal">
+      <div class="eyebrow">A memory worth keeping</div>
+      <h1>That Evening.</h1>
+      <div class="date">03 · 10 · 2026</div>
+      <p class="hero-sub">Meri life ki pehli date — Kamal Pokhari, ek thandi si shaam, aur meri mohtarma.</p>
+    </div>
+    <div class="scroll">Scroll slowly ↓</div>
+  </header>
+
+  <main>
+    <section class="intro reveal">
+      <h2>It started around 4:30.</h2>
+      <p>
+        Jagah mohtarma ne decide ki hui thi. Mujhe bas pahuchna tha...
+        aur shayad khud ko thoda sambhalna bhi.
+      </p>
+    </section>
+
+    <section class="story">
+      <p class="reveal">
+        Karib 4:30 baje shaam ka waqt tha jab main wahan pahucha. Jaise hi wahan pahucha,
+        sabse pehle maine apna scooter park kiya aur phir main bhagta chala ek chocolate ki
+        talaash mein. Unko Dairy Milk pasand thi aur Dairy Milk kahin mil hi nahi rahi thi.
+        Kareeb 10 minute idhar-udhar dhundne ke baad finally mujhe ek dukaan dikhi jahan woh
+        chocolate available thi.
+      </p>
+
+      <div class="photo-card reveal">
+        <img src="assets/kamal-pokhari.jpeg" alt="Kamal Pokhari at sunset" />
+        <div class="photo-caption">Kamal Pokhari · That evening</div>
+      </div>
+
+      <p class="reveal">
+        Chocolate li aur phir sab kuch karke hum pahunche Kamal Pokhari. Wahan ka mahaul
+        ekdum saaf, sundar aur logon se bhara hua tha. Ek behtareen shaam thi aur upar se
+        halki si thand — woh proper winter wali feeling.
+      </p>
+
+      <p class="reveal">
+        Jaise-jaise waqt beet raha tha, waise-waise mujhe aur ghabrahat hone lagi ki kab
+        waqt aage badhega, kya baat hogi, kaise milunga usse, kya bolunga... dimaag mein
+        bas yahi sab chal raha tha. Phir maine khud ko samjhaya ki zyada sochenge toh
+        kaam aur bigdega, isliye jo hoga dekha jayega.
+      </p>
+
+      <div class="moment reveal">
+        <div class="time">Around 5:12 — 5:17 PM</div>
+        <div class="quote">“Kahan ho aap?”</div>
+      </div>
+
+      <p class="reveal">
+        Aur phir meri mohtarma aayi. Mujhe ek call aaya — “Kahan ho aap?” Bas phir meri
+        aankhein unko dekhte hue bheed mein idhar-udhar ho rahi thi. Jab mujhe asli jagah
+        ka pata chala toh main kaise-taise, ghabrate hue unki taraf chal pada.
+      </p>
+
+      <p class="reveal">
+        Maine unko dhund liya tha, lekin aankhon mein ek alag hi sharam thi — “pyaar ki
+        sharam” — isliye nazrein milane se bach raha tha. Woh ek mast white & black
+        duo-colour jacket mein aayi thi aur bahot sundar lag rahi thi.
+      </p>
+
+      <p class="reveal">
+        Aur main? Main toh chappal mein chala gaya tha, like literally... 😂
+        Lekin jaise hi maine unko saamne dekha, meri saari ghabrahat pata nahi kaise
+        ekdum door ho gayi.
+      </p>
+
+      <p class="reveal">
+        Bas afsos iss baat ka raha ki main unke liye zyada kuch nahi kar paya, aur upar
+        se waqt bhi ekdum limited tha, isliye sab kuch apne hisaab se manage karna
+        possible nahi tha. Lekin phir bhi, jo waqt mila woh mere liye kaafi tha.
+      </p>
+    </section>
+
+    <section class="ending reveal">
+      <h2>And somehow,<br>it was perfect.</h2>
+      <p>
+        Meri life ki pehli date mere liye ekdum yaadgaar rahi. Personally mujhe bahot
+        maza aaya. Itne waqt se jis din ka intezaar tha, aakhirkaar woh din
+        3 October 2026 ko aa hi gaya.
+      </p>
+      <p style="margin-top:24px;">
+        Place meri mohtarma ne choose ki thi — aur kya location thi... ekdum maza aa gaya.
+      </p>
+      <div class="signature">Ek shaam, ek mohtarma, thodi si ghabrahat, bahot saari khushi... aur ek yaad.</div>
+    </section>
+  </main>
+
+  <footer>03 October 2026 · Kamal Pokhari</footer>
+
+  <script>
+    const audio = document.getElementById("song");
+    const button = document.getElementById("musicButton");
+    const label = document.getElementById("musicLabel");
+
+    button.addEventListener("click", async () => {
+      try {
+        if (audio.paused) {
+          await audio.play();
+          label.textContent = "Music playing";
+          button.classList.add("playing");
+        } else {
+          audio.pause();
+          label.textContent = "Play the evening";
+          button.classList.remove("playing");
+        }
+      } catch (err) {
+        label.textContent = "Tap to play";
+      }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
